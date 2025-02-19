@@ -1,11 +1,9 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Search from './Search';
 import Items from './Items';
 
-function Home() {
+function Home({items, setItems}) {
 
-    const [items, setItems]= useState([])
 
     useEffect(()=>{
     }, [])

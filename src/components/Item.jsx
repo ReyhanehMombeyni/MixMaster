@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Button from "./shared/Button"
 
 const Item=({idDrink, strGlass, strDrinkThumb, strAlcoholic}) => {
@@ -8,7 +9,7 @@ const Item=({idDrink, strGlass, strDrinkThumb, strAlcoholic}) => {
         <p className="pl-5 text-xl">{strGlass}</p>
         <span className="pl-5 text-gray-500">{strAlcoholic}</span>
         <div className="pl-5">
-            <Button title="Details" type="button" />
+            <Button title="Details" type="button" id={idDrink} />
         </div>
     </div>
   )
