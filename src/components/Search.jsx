@@ -8,9 +8,14 @@ const Search = ({setItems}) => {
 
     const formHandler = async (e) => {
         e.preventDefault();
-        const res= await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${item}`);
-        const {data}= res;
-        setItems(data.drinks);        
+        try {
+            const res= await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${item}`);
+            const {data}= res;
+            setItems(data.drinks);        
+        } catch (error) {
+            return 
+            
+        }
     }
     return (
         <div className="py-10">
