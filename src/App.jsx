@@ -10,8 +10,7 @@ import DetailsItem from './components/DetailsItem.jsx';
 import NotFound from './components/NotFound.jsx';
 
 function App() {
-  const [items, setItems]= useState([]);
-
+  const [items, setItems]= useState(null);
 
   return (
       <div>

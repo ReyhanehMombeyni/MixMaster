@@ -1,20 +1,26 @@
 import { useState } from "react"
 import Button from "./shared/Button"
 import axios from "axios"
+import ErrorPage from "./ErrorPage"
 
-const Search = ({setItems}) => {
+const Search = ({setItems, setIsLoading, setIsError}) => {
 
     const [item, setItem]= useState("")
 
     const formHandler = async (e) => {
+        setIsLoading(true);
+        setItems(null);
         e.preventDefault();
         try {
             const res= await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${item}`);
+            setIsLoading(false)    
             const {data}= res;
-            setItems(data.drinks);        
-        } catch (error) {
-            return 
-            
+            setItems(data.drinks)
+            setIsError(false)
+        } catch (err) {
+            setIsLoading(false);
+            setItems([]);
+            setIsError(true);
         }
     }
     return (
